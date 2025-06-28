@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+/* Custom CSS */
+.skill-progress {
+  transition: width 1.5s ease-in-out;
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+.active-section {
+  color: #3b82f6;
+  font-weight: 600;
+}
+body {
+  scroll-behavior: smooth;
+}
