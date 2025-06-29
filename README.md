@@ -19,4 +19,4 @@ My personal portfolio website built with **React** and **Tailwind CSS**. It high
 1. Clone the repo  
    ```bash
    git clone https://github.com/Devina0810/My-Portfolio
->>>>>>> 2fc24bc86aed053aee652007fe161598962f94b2
+
