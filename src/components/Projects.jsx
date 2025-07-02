@@ -14,21 +14,21 @@ const projects = [
     description: "Real-time weather forecast app with location detection and 5-day weather predictions using API integration.",
     image: "https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     tags: ["JavaScript", "API Integration", "Geolocation"],
-    githubLink: "https://github.com/Devina0810/React-Projects/tree/main/Desktop/React/Weather-App"
+    githubLink: "https://github.com/Devina0810/Weather-App"
   },
   {
     title: "Image Search App",
     description: "An application that searches and displays images using an external API with filtering and sorting capabilities.",
     image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    tags: ["React", "API Integration", "Tailwind CSS"],
-    githubLink: "https://github.com/Devina0810/React-Projects/tree/main/Desktop/React/Image%20search"
+    tags: ["React", "API Integration"],
+    githubLink: "https://github.com/Devina0810/Image-Search-App"
   },
   {
     title: "Todo List App",
     description: "A productivity application for managing daily tasks with features like categorization and priority setting.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
     tags: ["React", "Local Storage", "Context API"],
-    githubLink: "https://github.com/Devina0810/todo-app"
+    githubLink: "https://github.com/Devina0810/Task-trackr"
   }
 ];
 
