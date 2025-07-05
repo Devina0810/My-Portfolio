@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FaCode, FaProjectDiagram, FaTools, FaHeart, FaTimes } from 'react-icons/fa';
 import { FaJava, FaPython, FaReact, FaGit, FaGithub } from 'react-icons/fa';
-import { SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript } from 'react-icons/si';
-import { SiTailwindcss, SiBootstrap } from 'react-icons/si';
+import { SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiMongodb, SiNodedotjs, SiExpress, SiMysql, SiFirebase } from 'react-icons/si';
+import { SiTailwindcss, SiBootstrap, SiPostman, SiAppwrite } from 'react-icons/si';
 
 const Skills = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -32,7 +32,11 @@ const Skills = () => {
       skills: [
         { name: 'React', icon: <FaReact className="text-blue-400" /> },
         { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
-        { name: 'Bootstrap', icon: <SiBootstrap className="text-purple-500" /> }
+        { name: 'Bootstrap', icon: <SiBootstrap className="text-purple-500" /> },
+        { name: 'Node.js', icon: <SiNodedotjs className="text-green-600" /> },
+        { name: 'Express.js', icon: <SiExpress className="text-gray-300 dark:text-gray-100" /> },
+        { name: 'MongoDB', icon: <SiMongodb className="text-green-500" /> },
+        { name: 'MySQL', icon: <SiMysql className="text-blue-500" /> }
       ]
     },
     {
@@ -44,7 +48,10 @@ const Skills = () => {
         { name: 'Git', icon: <FaGit className="text-orange-500" /> },
         { name: 'GitHub', icon: <FaGithub className="text-gray-800 dark:text-gray-300" /> },
         { name: 'VS Code', icon: <span className="text-blue-500">VS</span> },
-        { name: 'Eclipse', icon: <span className="text-purple-500">EC</span> }
+        { name: 'Eclipse', icon: <span className="text-purple-500">EC</span> },
+        { name: 'Postman', icon: <SiPostman className="text-orange-600" /> },
+        { name: 'Firebase', icon: <SiFirebase className="text-yellow-400" /> },
+        { name: 'Appwrite', icon: <SiAppwrite className="text-pink-500" /> }
       ]
     },
     {
@@ -74,7 +81,7 @@ const Skills = () => {
             <span className="absolute bottom-0 left-0 w-full h-1 bg-primary-500"></span>
           </span>
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category) => (
             <div 
@@ -90,7 +97,7 @@ const Skills = () => {
                 <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
                 <p className="text-gray-300 text-center">{category.frontContent}</p>
               </div>
-              
+
               {/* Back Content */}
               <div className={`skill-details absolute top-0 left-0 right-0 bottom-0 p-6 transition-all duration-500 ${activeCard === category.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{category.title}</h3>
