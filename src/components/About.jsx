@@ -1,10 +1,20 @@
 import p1 from "../assets/p1.jpg";
+import { motion } from 'framer-motion';
+
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gray-800">
+    <section id="about" className="relative py-20 bg-gradient-to-r from-purple-950 via-black to-purple-950 text-white animate-gradient-x">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        className="container mx-auto px-6"
+      >
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-16 relative">
-          <span className="relative inline-block">
+        <div className="bg-black/60 backdrop-blur-md rounded-2xl shadow-lg p-10 md:p-16 border border-white/10">
+        <h2 className="text-4xl font-bold text-center mb-16 relative">
+          <span className="text-4xl font-bold text-center mb-16 relative text-primary-400">
             About Me
             <span className="absolute bottom-0 left-0 w-full h-1 bg-primary-500"></span>
           </span>
@@ -12,7 +22,7 @@ const About = () => {
         
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-            <div className="w-96 h-96 rounded-xl overflow-hidden shadow-lg">
+            <div className="w-96 h-96 rounded-xl overflow-hidden shadow-[0_0_20px_#3b82f666] border border-primary-500">
               <img 
                 src={p1}
                 alt="Working" 
@@ -29,14 +39,14 @@ const About = () => {
             
             <div className="mb-8">
               <h4 className="text-xl font-medium mb-4">My Journey</h4>
-              <div className="space-y-4">
+              <div className="space-y-4 ">
                 {[
                   { year: "2022", text: "Completed 12th standard with PCM from Maharani Gayatri Devi Girls School" },
                   { year: "2023", text: "Started B.Tech in Computer Science at Indian Institute of Information Technology (IIIT) Kota" },
                   { year: "2027", text: "Expected graduation with B.Tech in Computer Science from Indian Institute of Information Technology (IIIT) Kota" },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="flex-shrink-0 h-5 w-5 mt-1 bg-primary-500 rounded-full mr-4"></div>
+                    <div className="flex-shrink-0 h-4 w-4 mt-1 bg-primary-500 border-2 border-white rounded-full mr-4"></div>
                     <p className="text-gray-300">
                       <span className="font-semibold">{item.year}:</span> {item.text}
                     </p>
@@ -53,7 +63,9 @@ const About = () => {
             </a>
           </div>
         </div>
+        </div>
       </div>
+      </motion.div>
     </section>
   );
 };

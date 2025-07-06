@@ -16,3 +16,19 @@
 body {
   scroll-behavior: smooth;
 }
+@keyframes gradient-x {
+  0% {
+    background-position: 30% 50%;
+  }
+  50% {
+    background-position: 70% 50%;
+  }
+  100% {
+    background-position: 30% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}

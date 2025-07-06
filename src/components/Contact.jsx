@@ -45,18 +45,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="relative py-20 bg-gradient-to-r from-purple-950 via-black to-purple-950 text-white animate-gradient-x">
       <ToastContainer />
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-16 relative">
+        <h2 className="text-4xl font-bold text-center mb-16 relative text-white">
           <span className="relative inline-block">
             Get In Touch
             <span className="absolute bottom-0 left-0 w-full h-1 bg-primary-500"></span>
           </span>
         </h2>
 
-        <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row gap-12"
+        >
+          <div className="md:w-1/2 bg-black/40 backdrop-blur-md rounded-xl shadow-lg p-6 md:p-8 border border-white/10">
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               Feel free to reach out to me for any questions or opportunities. I'll respond as soon as possible.
@@ -91,7 +97,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 bg-black/40 backdrop-blur-md rounded-xl shadow-lg p-6 md:p-8 border border-white/10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
@@ -170,7 +176,7 @@ const Contact = () => {
               </motion.button>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

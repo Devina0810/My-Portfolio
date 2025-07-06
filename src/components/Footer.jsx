@@ -1,9 +1,17 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-6 text-center">
+    <footer className="relative py-12 text-gray-300 bg-gradient-to-r from-purple-950 via-black to-purple-950 overflow-hidden animate-gradient-x">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="container mx-auto px-6 text-center"
+      >
         <div className="flex justify-center mb-6">
           {[
             { icon: <FaGithub />, url: "https://github.com/Devina0810" },
@@ -15,7 +23,7 @@ const Footer = () => {
               href={social.url}
               target="_blank" 
               rel="noopener noreferrer" 
-              className="h-12 w-12 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-500 mx-2 hover:bg-primary-500/30 transition"
+              className="h-12 w-12 bg-primary-500/20 rounded-full flex items-center justify-center text-primary-500 mx-2 hover:scale-110 hover:bg-primary-500/30 transition-transform duration-300 hover:text-white"
             >
               {social.icon}
             </a>
@@ -37,10 +45,8 @@ const Footer = () => {
           </ul>
         </div>
         
-        <p className="text-sm">
-          &copy; {new Date().getFullYear()} Devina Yadav. All rights reserved.
-        </p>
-      </div>
+        <p className="text-sm mt-6 text-gray-400">&copy; {new Date().getFullYear()} Devina Yadav. All rights reserved.</p>
+      </motion.div>
     </footer>
   );
 };

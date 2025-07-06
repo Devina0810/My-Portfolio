@@ -3,6 +3,8 @@ import { FaCode, FaProjectDiagram, FaTools, FaHeart, FaTimes } from 'react-icons
 import { FaJava, FaPython, FaReact, FaGit, FaGithub } from 'react-icons/fa';
 import { SiC, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiMongodb, SiNodedotjs, SiExpress, SiMysql, SiFirebase } from 'react-icons/si';
 import { SiTailwindcss, SiBootstrap, SiPostman, SiAppwrite } from 'react-icons/si';
+import { motion } from 'framer-motion';
+
 
 const Skills = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -73,7 +75,14 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="skills" className="relative py-20 bg-gradient-to-r from-purple-950 via-black to-purple-950 text-white animate-gradient-x">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        className="container mx-auto px-6"
+      >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 relative text-white">
           <span className="relative inline-block">
@@ -86,7 +95,7 @@ const Skills = () => {
           {skillCategories.map((category) => (
             <div 
               key={category.id}
-              className={`relative bg-gray-800 rounded-xl shadow-lg overflow-hidden h-64 transition-all duration-300 ${activeCard === category.id ? 'ring-2 ring-primary-500' : 'hover:shadow-xl'}`}
+              className={`relative bg-black/40 backdrop-blur-md rounded-xl shadow-lg overflow-hidden h-64 transition-all duration-300 ${activeCard === category.id ? 'ring-2 ring-primary-500 shadow-[0_0_20px_#8b5cf666]' : 'hover:shadow-xl'}`}
               onClick={() => toggleCard(category.id)}
             >
               {/* Front Content */}
@@ -100,12 +109,12 @@ const Skills = () => {
 
               {/* Back Content */}
               <div className={`skill-details absolute top-0 left-0 right-0 bottom-0 p-6 transition-all duration-500 ${activeCard === category.id ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{category.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">{category.title}</h3>
                 <ul className="space-y-3 overflow-y-auto h-4/5">
                   {category.skills.map((skill, index) => (
                     <li 
                       key={index}
-                      className="flex items-start text-gray-700 dark:text-gray-300"
+                      className="flex items-start text-gray-300"
                     >
                       <span className="mr-3 mt-1">{skill.icon}</span>
                       <span>{skill.name}</span>
@@ -126,6 +135,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
+      </motion.div>
     </section>
   );
 };

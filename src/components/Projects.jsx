@@ -55,8 +55,12 @@ const projects = [
 const ProjectCard = ({ project }) => {
   return (
     <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      viewport={{ once: true }}
       whileHover={{ y: -10 }}
-      className="project-card rounded-xl overflow-hidden shadow-lg bg-gray-700 transition-all duration-300 h-full flex flex-col"
+      className="project-card rounded-xl overflow-hidden shadow-lg bg-black/40 backdrop-blur-md border border-white/10 transition-all duration-300 h-full flex flex-col"
     >
       <div className="relative h-48 flex-shrink-0">
         <img 
@@ -70,7 +74,7 @@ const ProjectCard = ({ project }) => {
               {project.tags.map((tag, index) => (
                 <span 
                   key={index} 
-                  className="text-xs px-2 py-1 bg-primary-500/20 text-primary-800 dark:text-primary-200 rounded backdrop-blur-sm"
+                  className="text-xs px-2 py-1 bg-primary-500/30 text-white border border-primary-400/20 rounded"
                 >
                   {tag}
                 </span>
@@ -128,19 +132,19 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-16 relative text-white">
+    <section id="projects" className="relative py-20 bg-gradient-to-r from-purple-950 via-black to-purple-950 text-white animate-gradient-x">
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 pointer-events-none"></div>
+      <div className="relative z-10 container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16 relative text-white">
           <span className="relative inline-block">
             My Projects
             <span className="absolute bottom-0 left-0 w-full h-1 bg-primary-500"></span>
           </span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-stretch">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
@@ -163,7 +167,5 @@ const Projects = () => {
     </section>
   );
 };
-
-
 
 export default Projects;

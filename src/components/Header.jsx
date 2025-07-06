@@ -32,7 +32,7 @@ const Header = ({ darkMode, toggleTheme }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-blue-950/80 backdrop-blur-md shadow-sm">
+    <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-primary-500">DY</div>
         
@@ -42,7 +42,9 @@ const Header = ({ darkMode, toggleTheme }) => {
             <a 
               key={section}
               href={`#${section}`} 
-              className={`nav-link text-gray-200 hover:text-primary-500 dark:hover:text-primary-400 transition ${activeSection === section ? 'active-section' : ''}`}
+              className={`nav-link text-gray-200 hover:text-primary-500 transition ${
+              activeSection === section ? 'text-primary-500 border-b-2 border-primary-500 pb-1' : ''
+        }`}
               onClick={() => handleNavClick(section)}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -77,9 +79,9 @@ const Header = ({ darkMode, toggleTheme }) => {
       </nav>
       
       {/* Mobile Menu */}
-      <div 
-        id="mobile-menu" 
-        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-gray-900 py-4 px-6 shadow-lg`}
+      <div
+        id="mobile-menu"
+        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-gray-900/95 py-4 px-6 shadow-lg border-t border-gray-700`}
       >
         <div className="flex flex-col space-y-4">
           {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (

@@ -20,15 +20,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative">
+    <section id="home" className="min-h-screen flex items-center relative bg-gradient-to-r from-purple-900 via-black to-purple-900 text-white animate-gradient-x">
       <div className="container mx-auto px-6 pt-8 pb-20 flex flex-col md:flex-row items-center md:pr-12">
         <div className="md:w-1/2 flex flex-col space-y-8">
-          <p className="text-2xl font-semibold text-gray-200">Hello, I'm</p>
+          <p className="text-2xl font-semibold text-primary-400">Hello, I'm</p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-bold leading-tight text-gray-100"
+            className="text-4xl md:text-6xl font-extrabold leading-tight text-white tracking-tight"
           >
             Devina Yadav
           </motion.h1>
@@ -90,7 +90,7 @@ const Hero = () => {
         </div>
 
         <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 shadow-xl">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 shadow-[0_0_20px_#3b82f666]">
             <img
               src={p3}
               alt="Devina Yadav"
