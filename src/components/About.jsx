@@ -11,8 +11,8 @@ const About = () => {
         viewport={{ once: true }}
         className="container mx-auto px-6"
       >
-      <div className="container mx-auto px-6">
-        <div className="bg-black/60 backdrop-blur-md rounded-2xl shadow-lg p-10 md:p-16 border border-white/10">
+      <div className="px-4 md:container md:mx-auto md:px-6">
+        <div className="w-full bg-black/60 backdrop-blur-md rounded-2xl shadow-lg p-6 md:p-16 border border-white/10">
         <h2 className="text-4xl font-bold text-center mb-16 relative text-primary-400">
           <span className="text-4xl font-bold text-center mb-16 relative text-primary-400">
             About Me
