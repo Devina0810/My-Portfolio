@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import p3 from "../assets/p3.jpg";
 
-const roles = ["Frontend Developer", "DSA Enthusiast", "Student"];
+const roles = ["Full-Stack Developer", "DSA Enthusiast", "Student"];
 
 const Hero = () => {
   const [index, setIndex] = useState(0);

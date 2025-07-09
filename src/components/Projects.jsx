@@ -11,18 +11,18 @@ const projects = [
     liveLink: "https://linkora-xyyp.onrender.com/"
   },
   {
-    title: "E-Commerce App",
-    description: "A fully functional e-commerce platform with product listings, cart functionality, and user authentication.",
+    title: "Maison Belle",
+    description: "A fully functional e-commerce platform with product listings, cart functionality, user authentication, and. secure Razorpay payment integration.",
     image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    tags: ["React", "Node.js", "MongoDB", "Redux"],
-    githubLink: "https://github.com/Devina0810/E-Commerce-Site",
-    liveLink: "https://ecommerce-devina.vercel.app"
+    tags: ["React", "Node.js", "MongoDB", "Zustand", "JWT Authentication ", "Razorpay"],
+    githubLink: "https://github.com/Devina0810/Maison-Belle",
+    liveLink: "https://maison-belle.onrender.com/"
   },
   {
     title: "Todo List App",
     description: "A productivity application for managing daily tasks with features like categorization and priority setting.",
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    tags: ["React", "Local Storage", "Context API"],
+    tags: ["React", "MongoDB", "Context API"],
     githubLink: "https://github.com/Devina0810/Task-trackr",
     liveLink: "https://todo-devina.vercel.app"
   },
