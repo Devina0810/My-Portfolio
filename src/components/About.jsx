@@ -249,7 +249,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.6 }}
                   viewport={{ once: true }}
-                  href="/Devinayadav_Resume.pdf"
+                  href="/DevinaYadav_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ 
