@@ -32,3 +32,675 @@ body {
   background-size: 200% 200%;
   animation: gradient-x 10s ease infinite;
 }
+/* ---------------------------------------------------------------
+   1. Background gradient + colour-shift
+---------------------------------------------------------------- */
+.hero-gradient {
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+}
+
+.hero-bg-animation {
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------------------------------------------------------
+   2. Text & button effects
+---------------------------------------------------------------- */
+.hello-glow { animation: textGlow 3s ease-in-out infinite; }
+
+@keyframes textGlow {
+  0%,100% { text-shadow: 0 0 10px #06b6d4; }
+  50%     { text-shadow: 0 0 20px #06b6d4; }
+}
+
+.name-gradient {
+  background: linear-gradient(45deg,#ffffff,#06b6d4,#a855f7);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nameGradient 4s ease infinite;
+}
+
+@keyframes nameGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.role-gradient {
+  background: linear-gradient(45deg,#a855f7,#ec4899);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(168,85,247,.8);
+}
+
+.description-text { text-shadow: 0 2px 4px rgba(0,0,0,.8); }
+
+/* button shimmer */
+.cta-button { position: relative; overflow: hidden; }
+.cta-button::before {
+  content:'';
+  position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transition: left .5s;
+}
+.cta-button:hover::before { left:100%; }
+
+/* ---------------------------------------------------------------
+   3. Profile image extras
+---------------------------------------------------------------- */
+.rotating-border {
+  background: conic-gradient(from 0deg,#06b6d4,#a855f7,#ec4899,#06b6d4);
+  opacity: .3;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+.image-overlay {
+  background: linear-gradient(to top,rgba(6,182,212,.2),transparent);
+  animation: overlayPulse 4s ease-in-out infinite;
+}
+
+@keyframes overlayPulse {
+  0%,100% { opacity:.2; }
+  50%     { opacity:.4; }
+}
+
+.image-container { transform: translateZ(0); will-change: transform; }
+
+/* ---------------------------------------------------------------
+   4. Decorative shapes – pure CSS (no JS re-renders)
+---------------------------------------------------------------- */
+.dec-circle {
+  position:absolute; border-radius:9999px; opacity:.08;
+  background: linear-gradient(45deg,#60a5fa,#a855f7,#ec4899);
+  will-change: transform;
+}
+
+.circle-1 { width:200px; height:200px; left:20%; top:20%; animation:float1 15s linear infinite; }
+.circle-2 { width:250px; height:250px; left:50%; top:40%; animation:float2 18s linear infinite reverse; }
+.circle-3 { width:300px; height:300px; left:70%; top:10%; animation:float3 22s linear infinite; }
+
+@keyframes float1 {
+  0% { transform:translate3d(0,0,0)  scale(1)   rotate(0); }
+ 100%{ transform:translate3d(50px,30px,0) scale(1.1) rotate(360deg); }
+}
+@keyframes float2 {
+  0% { transform:translate3d(0,0,0)  scale(1)   rotate(0); }
+ 100%{ transform:translate3d(-40px,20px,0) scale(1.05) rotate(-360deg); }
+}
+@keyframes float3 {
+  0% { transform:translate3d(0,0,0)  scale(1)   rotate(0); }
+ 100%{ transform:translate3d(30px,-30px,0) scale(1.08) rotate(360deg); }
+}
+
+/* particles */
+.dec-particle { position:absolute; width:6px; height:6px; border-radius:9999px; opacity:0; will-change: transform; }
+.part-0 { background:#60a5fa; left:10%; top:15%; animation:pop 9s  ease-in-out infinite   0s; }
+.part-1 { background:#a855f7; left:20%; top:23%; animation:pop 10s ease-in-out infinite  .5s; }
+.part-2 { background:#ec4899; left:30%; top:10%; animation:pop 8s  ease-in-out infinite   1s; }
+.part-3 { background:#60a5fa; left:40%; top:28%; animation:pop 11s ease-in-out infinite 1.5s; }
+.part-4 { background:#a855f7; left:50%; top:18%; animation:pop 9s  ease-in-out infinite   2s; }
+.part-5 { background:#ec4899; left:60%; top:35%; animation:pop 10s ease-in-out infinite 2.5s; }
+.part-6 { background:#60a5fa; left:70%; top:12%; animation:pop 12s ease-in-out infinite   3s; }
+.part-7 { background:#a855f7; left:80%; top:25%; animation:pop 9s  ease-in-out infinite 3.5s; }
+
+@keyframes pop {
+  0%   { transform:scale(0) translate(0,0);  opacity:0; }
+  30%  { transform:scale(1) translate(40px,-20px); opacity:.8; }
+  60%  { transform:scale(.7) translate(60px,40px); opacity:.2; }
+  100% { transform:scale(0) translate(0,0);  opacity:0; }
+}
+
+/* scanning lines */
+.dec-line {
+  position:absolute; height:1px; opacity:.3;
+  background: linear-gradient(to right,transparent,#60a5fa,transparent);
+  will-change:transform;
+}
+.line-1 { width:300px; left:10%; top:30%; transform:rotate(0deg);   animation:scan  8s ease-in-out infinite; }
+.line-2 { width:400px; left:30%; top:50%; transform:rotate(45deg);  animation:scan 10s ease-in-out infinite 2s; }
+.line-3 { width:500px; left:60%; top:70%; transform:rotate(-45deg); animation:scan 12s ease-in-out infinite 4s; }
+
+@keyframes scan {
+  0%,100% { transform-origin:left center; transform:scaleX(0); }
+  50%     { transform-origin:left center; transform:scaleX(1); }
+}
+
+/* ----------------------------------------------------------------
+   5. Respect users who prefer reduced motion
+---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .dec-circle,
+  .dec-particle,
+  .dec-line,
+  .hero-bg-animation,
+  .hello-glow,
+  .name-gradient,
+  .rotating-border,
+  .image-overlay { animation: none !important; }
+}
+/* ============================================================
+   ABOUT-SECTION  (all decorative motion = pure CSS)
+============================================================ */
+
+/* section wrapper gets its own stacking & GPU hint */
+.about-section { transform: translateZ(0); will-change: transform; }
+
+/* animated gradient background */
+.about-bg-animation {
+  background: linear-gradient(45deg,#1e1b4b,#0f172a,#581c87);
+  background-size: 400% 400%;
+  animation: aboutBgShift 15s ease infinite;
+}
+@keyframes aboutBgShift {
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* -------- card subtle pulse -------- */
+.card-bg-animation {
+  background: radial-gradient(circle at 50% 50%,rgba(59,130,246,.12) 0%,transparent 60%);
+  animation: cardBgPulse 12s ease-in-out infinite;
+}
+@keyframes cardBgPulse{0%,100%{opacity:.3;}50%{opacity:.6;}}
+
+/* -------- fancy gradient title text -------- */
+.about-title-gradient{
+  background:linear-gradient(45deg,#06b6d4,#a855f7,#ec4899);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:titleGradient 6s ease infinite;
+}
+@keyframes titleGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* -------- rotating border & overlay on the picture -------- */
+.rotating-border-about{
+  background:conic-gradient(from 0deg,#06b6d4,#a855f7,#ec4899,#06b6d4);
+  opacity:.2;
+  animation:rotateBorder 25s linear infinite;
+}
+@keyframes rotateBorder{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+
+.image-overlay-about{
+  background:linear-gradient(to top,rgba(6,182,212,.2),transparent);
+  animation:overlayPulse 6s ease-in-out infinite;
+}
+@keyframes overlayPulse{0%,100%{opacity:.2;}50%{opacity:.4;}}
+
+.image-container{transform:translateZ(0);will-change:transform;}
+
+/* ----------------------------------------------------------
+   Decorative ORBS
+---------------------------------------------------------- */
+.about-orb{
+  position:absolute;border-radius:9999px;opacity:.18;
+  background:radial-gradient(circle,#3b82f6 0%,transparent 70%);
+  will-change:transform;
+}
+.orb-1{width:150px;height:150px;left:15%;top:20%;animation:orbFloat1 18s ease-in-out infinite;}
+.orb-2{width:200px;height:200px;left:45%;top:45%;animation:orbFloat2 22s ease-in-out infinite;}
+.orb-3{width:250px;height:250px;left:75%;top:15%;animation:orbFloat3 26s ease-in-out infinite;}
+
+@keyframes orbFloat1{0%{transform:translate(0,0);}50%{transform:translate(80px,60px);}100%{transform:translate(0,0);}}
+@keyframes orbFloat2{0%{transform:translate(0,0);}50%{transform:translate(-60px,50px);}100%{transform:translate(0,0);}}
+@keyframes orbFloat3{0%{transform:translate(0,0);}50%{transform:translate(60px,-40px);}100%{transform:translate(0,0);}}
+
+/* ----------------------------------------------------------
+   Decorative PARTICLES
+---------------------------------------------------------- */
+.about-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;
+  opacity:0;will-change:transform;
+}
+.part-0{background:#60a5fa;left:10%;top:20%;animation:partPop 8s infinite 0s;}
+.part-1{background:#a855f7;left:25%;top:32%;animation:partPop 9s infinite .8s;}
+.part-2{background:#ec4899;left:40%;top:15%;animation:partPop 10s infinite 1.6s;}
+.part-3{background:#06b6d4;left:55%;top:38%;animation:partPop 11s infinite 2.4s;}
+.part-4{background:#a855f7;left:70%;top:22%;animation:partPop 9s infinite 3.2s;}
+.part-5{background:#ec4899;left:85%;top:30%;animation:partPop 10s infinite 4s;}
+
+@keyframes partPop{
+  0%  {transform:scale(0) translate(0,0);opacity:0;}
+ 30% {transform:scale(1.4) translate(40px,-20px);opacity:.8;}
+ 60% {transform:scale(.8) translate(60px,50px);opacity:.2;}
+ 100%{transform:scale(0) translate(0,0);opacity:0;}
+}
+
+/* ----------------------------------------------------------
+   Decorative LINES
+---------------------------------------------------------- */
+.about-line{
+  position:absolute;height:1px;opacity:.3;
+  background:linear-gradient(to right,transparent,#60a5fa,transparent);
+  will-change:transform;
+}
+.line-a{width:400px;left:20%;top:30%;transform:rotate(0deg);  animation:scanLine 8s ease-in-out infinite;}
+.line-b{width:600px;left:60%;top:60%;transform:rotate(90deg); animation:scanLine 10s ease-in-out infinite 3s;}
+
+@keyframes scanLine{
+  0%,100%{transform-origin:left center;transform:scaleX(0);}
+  50%   {transform-origin:left center;transform:scaleX(1);}
+}
+
+/* ----------------------------------------------------------
+   Tiny particles orbiting around the photo
+---------------------------------------------------------- */
+.img-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;
+  background:#06b6d4;left:50%;top:50%;opacity:0;will-change:transform;
+}
+.ip-1{animation:imgOrbit1 5s linear infinite;}
+.ip-2{background:#a855f7;animation:imgOrbit2 5s linear infinite .8s;}
+.ip-3{background:#ec4899;animation:imgOrbit3 5s linear infinite 1.6s;}
+
+@keyframes imgOrbit1{0%{transform: translate(0,0);opacity:0;}20%{opacity:1;}50%{transform:translate(60px,0);}80%{opacity:1;}100%{transform:translate(0,0);opacity:0;}}
+@keyframes imgOrbit2{0%{transform: translate(0,0);}50%{transform:translate(-60px,0);}100%{transform:translate(0,0);}}
+@keyframes imgOrbit3{0%{transform: translate(0,0);}50%{transform:translate(0,60px);}100%{transform:translate(0,0);}}
+
+/* ----------------------------------------------------------
+   Text shadows
+---------------------------------------------------------- */
+.who-i-am-title  { text-shadow:0 0 20px rgba(6,182,212,.5); }
+.about-description{ text-shadow:0 2px 4px rgba(0,0,0,.8); }
+.journey-title   { text-shadow:0 0 15px rgba(168,85,247,.5); }
+.journey-text    { text-shadow:0 1px 2px rgba(0,0,0,.8); }
+
+/* ----------------------------------------------------------
+   Resume button shimmer
+---------------------------------------------------------- */
+.resume-button{position:relative;overflow:hidden;}
+.resume-button::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transition:left .5s;
+}
+.resume-button:hover::before{left:100%;}
+
+/* ----------------------------------------------------------
+   Respect 'prefers-reduced-motion'
+---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .about-bg-animation,
+  .card-bg-animation,
+  .rotating-border-about,
+  .image-overlay-about,
+  .about-orb,
+  .about-particle,
+  .about-line,
+  .img-particle{animation:none!important;}
+}
+/* ============================================================
+   SKILLS SECTION
+============================================================ */
+.skills-section{transform:translateZ(0);will-change:transform;}
+
+.skills-bg-animation{
+  background:linear-gradient(45deg,#1e1b4b,#0f172a,#581c87);
+  background-size:400% 400%;
+  animation:skillsBgShift 18s ease infinite;
+}
+@keyframes skillsBgShift{
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* heading gradient */
+.skills-title-gradient{
+  background:linear-gradient(45deg,#06b6d4,#a855f7,#ec4899);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:skillsTitleGradient 6s ease infinite;
+}
+@keyframes skillsTitleGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* ----------------------------------------------------------
+   Decorative ORBS
+---------------------------------------------------------- */
+.skills-orb{
+  position:absolute;border-radius:9999px;opacity:.18;
+  background:radial-gradient(circle,#06b6d4 0%,transparent 70%);
+  will-change:transform;
+}
+.orb-s1{width:120px;height:120px;left:20%;top:15%;animation:orbS1 16s ease-in-out infinite;}
+.orb-s2{width:160px;height:160px;left:50%;top:40%;animation:orbS2 20s ease-in-out infinite reverse;}
+.orb-s3{width:200px;height:200px;left:80%;top:20%;animation:orbS3 24s ease-in-out infinite;}
+@keyframes orbS1{0%{transform:translate(0,0);}50%{transform:translate(60px,40px);}100%{transform:translate(0,0);}}
+@keyframes orbS2{0%{transform:translate(0,0);}50%{transform:translate(-50px,30px);}100%{transform:translate(0,0);}}
+@keyframes orbS3{0%{transform:translate(0,0);}50%{transform:translate(50px,-30px);}100%{transform:translate(0,0);}}
+
+/* ----------------------------------------------------------
+   Decorative PARTICLES
+---------------------------------------------------------- */
+.skills-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;opacity:0;will-change:transform;
+}
+.part-s0{background:#06b6d4;left:15%;top:20%;animation:skillPop 7s infinite 0s;}
+.part-s1{background:#a855f7;left:27%;top:30%;animation:skillPop 8s infinite .6s;}
+.part-s2{background:#ec4899;left:39%;top:25%;animation:skillPop 9s infinite 1.2s;}
+.part-s3{background:#10b981;left:53%;top:38%;animation:skillPop 8s infinite 1.8s;}
+.part-s4{background:#a855f7;left:68%;top:22%;animation:skillPop 9s infinite 2.4s;}
+.part-s5{background:#ec4899;left:83%;top:30%;animation:skillPop 10s infinite 3s;}
+@keyframes skillPop{
+  0%{transform:scale(0) translate(0,0);opacity:0;}
+ 30%{transform:scale(1.3) translate(40px,-20px);opacity:.8;}
+ 60%{transform:scale(.8) translate(60px,30px);opacity:.2;}
+100%{transform:scale(0) translate(0,0);opacity:0;}
+}
+
+/* ----------------------------------------------------------
+   Cards – common tweaks
+---------------------------------------------------------- */
+.skill-card{transform:translateZ(0);will-change:transform;}
+.skill-card-title{text-shadow:0 0 15px rgba(255,255,255,.3);}
+.skill-card-description{text-shadow:0 1px 2px rgba(0,0,0,.8);}
+
+/* spinning borders (same timing as before) */
+.card-border-0::before,
+.card-border-1::before,
+.card-border-2::before,
+.card-border-3::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(45deg,transparent,#06b6d4,transparent);
+  opacity:.2;animation:spinBorder 8s linear infinite;
+}
+.card-border-1::before{background:linear-gradient(45deg,transparent,#a855f7,transparent);animation-delay:2s;}
+.card-border-2::before{background:linear-gradient(45deg,transparent,#ec4899,transparent);animation-delay:4s;}
+.card-border-3::before{background:linear-gradient(45deg,transparent,#10b981,transparent);animation-delay:6s;}
+
+@keyframes spinBorder{0%{transform:rotate(0);}50%{transform:rotate(180deg);}100%{transform:rotate(360deg);}}
+
+/* custom thin scrollbar inside the list */
+.custom-scrollbar::-webkit-scrollbar{width:4px;}
+.custom-scrollbar::-webkit-scrollbar-track{background:rgba(255,255,255,.1);border-radius:2px;}
+.custom-scrollbar::-webkit-scrollbar-thumb{
+  background:linear-gradient(to bottom,#06b6d4,#a855f7);border-radius:2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(to bottom,#0891b2,#9333ea);
+}
+
+/* ----------------------------------------------------------
+   Reduced-motion support
+---------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .skills-bg-animation,
+  .skills-orb,
+  .skills-particle,
+  .card-border-0::before,
+  .card-border-1::before,
+  .card-border-2::before,
+  .card-border-3::before{animation:none!important;}
+}
+/* ============================================================
+   PROJECTS SECTION
+============================================================ */
+.projects-section{transform:translateZ(0);will-change:transform;}
+
+.projects-bg-animation{
+  background:linear-gradient(45deg,#1e1b4b,#0f172a,#581c87);
+  background-size:400% 400%;
+  animation:projectsBgShift 20s ease infinite;
+}
+@keyframes projectsBgShift{
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* title gradient */
+.projects-title-gradient{
+  background:linear-gradient(45deg,#06b6d4,#a855f7,#ec4899);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:projectsTitleGradient 6s ease infinite;
+}
+@keyframes projectsTitleGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* ----------------------------------------------------------
+   Decorative ORBS
+---------------------------------------------------------- */
+.projects-orb{
+  position:absolute;border-radius:9999px;opacity:.18;
+  background:radial-gradient(circle,#06b6d4 0%,transparent 70%);
+  will-change:transform;
+}
+.orb-p1{width:150px;height:150px;left:10%;top:15%;animation:orbP1 18s ease-in-out infinite;}
+.orb-p2{width:200px;height:200px;left:35%;top:35%;animation:orbP2 22s ease-in-out infinite reverse;}
+.orb-p3{width:250px;height:250px;left:65%;top:10%;animation:orbP3 25s ease-in-out infinite;}
+.orb-p4{width:200px;height:200px;left:85%;top:40%;animation:orbP4 24s ease-in-out infinite reverse;}
+
+@keyframes orbP1{0%{transform:translate(0,0);}50%{transform:translate(100px,80px);}100%{transform:translate(0,0);}}
+@keyframes orbP2{0%{transform:translate(0,0);}50%{transform:translate(-80px,60px);}100%{transform:translate(0,0);}}
+@keyframes orbP3{0%{transform:translate(0,0);}50%{transform:translate(90px,-60px);}100%{transform:translate(0,0);}}
+@keyframes orbP4{0%{transform:translate(0,0);}50%{transform:translate(-90px,-50px);}100%{transform:translate(0,0);}}
+
+/* ----------------------------------------------------------
+   Decorative PARTICLES
+---------------------------------------------------------- */
+.projects-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;opacity:0;will-change:transform;
+}
+.part-p0{background:#06b6d4;left:12%;top:20%;animation:projPop 8s infinite   0s;}
+.part-p1{background:#a855f7;left:22%;top:28%;animation:projPop 9s infinite  .5s;}
+.part-p2{background:#ec4899;left:32%;top:16%;animation:projPop 10s infinite 1s;}
+.part-p3{background:#10b981;left:44%;top:32%;animation:projPop 9s infinite 1.5s;}
+.part-p4{background:#a855f7;left:56%;top:22%;animation:projPop 10s infinite 2s;}
+.part-p5{background:#ec4899;left:68%;top:30%;animation:projPop 8s infinite  2.5s;}
+.part-p6{background:#06b6d4;left:78%;top:18%;animation:projPop 9s infinite  3s;}
+.part-p7{background:#10b981;left:88%;top:26%;animation:projPop 10s infinite 3.5s;}
+
+@keyframes projPop{
+  0%{transform:scale(0) translate(0,0);opacity:0;}
+ 30%{transform:scale(1.3) translate(60px,-20px);opacity:.8;}
+ 60%{transform:scale(.8) translate(80px,50px);opacity:.2;}
+100%{transform:scale(0) translate(0,0);opacity:0;}
+}
+
+/* ----------------------------------------------------------
+   Decorative LINES
+---------------------------------------------------------- */
+.projects-line{
+  position:absolute;height:1px;opacity:.3;
+  background:linear-gradient(to right,transparent,#60a5fa,transparent);
+  will-change:transform;
+}
+.line-p1{width:500px;left:15%;top:25%;transform:rotate(0deg);  animation:scanP 9s ease-in-out infinite;}
+.line-p2{width:700px;left:45%;top:50%;transform:rotate(60deg); animation:scanP 11s ease-in-out infinite 3s;}
+.line-p3{width:900px;left:25%;top:75%;transform:rotate(120deg);animation:scanP 13s ease-in-out infinite 6s;}
+
+@keyframes scanP{
+  0%,100%{transform-origin:left center;transform:scaleX(0);}
+  50%   {transform-origin:left center;transform:scaleX(1);}
+}
+
+/* ----------------------------------------------------------
+   Cards & text shadows
+---------------------------------------------------------- */
+.project-card{transform:translateZ(0);will-change:transform;}
+.project-title{text-shadow:0 0 20px rgba(255,255,255,.3);}
+.project-description{text-shadow:0 2px 4px rgba(0,0,0,.8);}
+.project-tag{text-shadow:0 1px 2px rgba(0,0,0,.8);}
+
+/* rotating border for each of 4 colour variants */
+.card-border-0::before,
+.card-border-1::before,
+.card-border-2::before,
+.card-border-3::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(45deg,transparent,rgba(6,182,212,.3),transparent);
+  opacity:.2;animation:spinProj 6s linear infinite;
+}
+.card-border-1::before{background:linear-gradient(45deg,transparent,rgba(168,85,247,.3),transparent);animation-delay:1.5s;}
+.card-border-2::before{background:linear-gradient(45deg,transparent,rgba(236,72,153,.3),transparent);animation-delay:3s;}
+.card-border-3::before{background:linear-gradient(45deg,transparent,rgba(16,185,129,.3),transparent);animation-delay:4.5s;}
+
+@keyframes spinProj{0%{transform:rotate(0);}50%{transform:rotate(180deg);}100%{transform:rotate(360deg);}}
+
+/* GitHub button shimmer */
+.github-button{position:relative;overflow:hidden;}
+.github-button::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transition:left .5s;
+}
+.github-button:hover::before{left:100%;}
+
+/* ----------------------------------------------------------
+   Reduced-motion
+---------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .projects-bg-animation,
+  .projects-orb,
+  .projects-particle,
+  .projects-line,
+  .card-border-0::before,
+  .card-border-1::before,
+  .card-border-2::before,
+  .card-border-3::before{animation:none!important;}
+}
+/* ============================================================
+   CONTACT SECTION
+============================================================ */
+.contact-section{transform:translateZ(0);will-change:transform;}
+
+.contact-bg-animation{
+  background:linear-gradient(45deg,#1e1b4b,#0f172a,#581c87);
+  background-size:400% 400%;
+  animation:contactBgShift 16s ease infinite;
+}
+@keyframes contactBgShift{
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* heading gradient text */
+.contact-title-gradient{
+  background:linear-gradient(45deg,#06b6d4,#a855f7,#ec4899);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:contactTitleGradient 6s ease infinite;
+}
+@keyframes contactTitleGradient{
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* honour users who prefer reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .contact-bg-animation{animation:none!important;}
+}
+/* ============================================================
+   FOOTER SECTION
+============================================================ */
+.footer-section{transform:translateZ(0);will-change:transform;}
+
+.footer-bg-animation{
+  background:linear-gradient(45deg,#1e1b4b,#0f172a,#581c87);
+  background-size:400% 400%;
+  animation:footerBgShift 14s ease infinite;
+}
+@keyframes footerBgShift{
+  0%{background-position:0% 50%;}
+ 50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* brand text */
+.footer-name-gradient{
+  background:linear-gradient(45deg,#06b6d4,#a855f7,#ec4899);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:footerNameGradient 5s ease infinite;
+  text-shadow:0 0 20px rgba(6,182,212,.5);
+}
+@keyframes footerNameGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+.footer-subtitle{ text-shadow:0 2px 4px rgba(0,0,0,.8); }
+.footer-nav-link{ text-shadow:0 1px 2px rgba(0,0,0,.8); }
+.footer-nav-link:hover{ text-shadow:0 0 15px currentColor; }
+.footer-made-with{ text-shadow:0 1px 2px rgba(0,0,0,.8); }
+.back-to-top-btn:hover{ box-shadow:0 0 20px rgba(6,182,212,.5); }
+
+/* ----------------------------------------------------------
+   ORBS
+---------------------------------------------------------- */
+.footer-orb{
+  position:absolute;border-radius:9999px;opacity:.18;
+  background:radial-gradient(circle,#06b6d4 0%,transparent 70%);
+  will-change:transform;
+}
+.orb-f1{width:100px;height:100px;left:20%;top:25%;animation:orbF1 15s ease-in-out infinite;}
+.orb-f2{width:140px;height:140px;left:50%;top:45%;animation:orbF2 18s ease-in-out infinite reverse;}
+.orb-f3{width:180px;height:180px;left:80%;top:30%;animation:orbF3 21s ease-in-out infinite;}
+
+@keyframes orbF1{0%{transform:translate(0,0);}50%{transform:translate(60px,40px);}100%{transform:translate(0,0);}}
+@keyframes orbF2{0%{transform:translate(0,0);}50%{transform:translate(-50px,30px);}100%{transform:translate(0,0);}}
+@keyframes orbF3{0%{transform:translate(0,0);}50%{transform:translate(50px,-25px);}100%{transform:translate(0,0);}}
+
+/* ----------------------------------------------------------
+   PARTICLES
+---------------------------------------------------------- */
+.footer-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;opacity:0;will-change:transform;
+}
+.part-f0{background:#06b6d4;left:15%;top:20%;animation:footPop 6s infinite 0s;}
+.part-f1{background:#a855f7;left:30%;top:32%;animation:footPop 7s infinite .8s;}
+.part-f2{background:#ec4899;left:45%;top:25%;animation:footPop 8s infinite 1.6s;}
+.part-f3{background:#10b981;left:60%;top:38%;animation:footPop 7s infinite 2.4s;}
+.part-f4{background:#a855f7;left:75%;top:22%;animation:footPop 8s infinite 3.2s;}
+
+@keyframes footPop{
+  0%{transform:scale(0) translate(0,0);opacity:0;}
+ 30%{transform:scale(1.3) translate(35px,-15px);opacity:.8;}
+ 60%{transform:scale(.8) translate(55px,25px);opacity:.2;}
+100%{transform:scale(0) translate(0,0);opacity:0;}
+}
+
+/* ----------------------------------------------------------
+   LINES
+---------------------------------------------------------- */
+.footer-line{
+  position:absolute;height:1px;opacity:.3;
+  background:linear-gradient(to right,transparent,#60a5fa,transparent);
+  will-change:transform;
+}
+.line-f1{width:300px;left:25%;top:30%;transform:rotate(0deg); animation:scanF 6s ease-in-out infinite;}
+.line-f2{width:450px;left:60%;top:60%;transform:rotate(90deg);animation:scanF 8s ease-in-out infinite 3s;}
+
+@keyframes scanF{
+  0%,100%{transform-origin:left center;transform:scaleX(0);}
+  50%   {transform-origin:left center;transform:scaleX(1);}
+}
+
+/* ----------------------------------------------------------
+   Reduced-motion
+---------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .footer-bg-animation,
+  .footer-orb,
+  .footer-particle,
+  .footer-line{animation:none!important;}
+}
+
