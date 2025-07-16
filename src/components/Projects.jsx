@@ -28,7 +28,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1000&q=80',
     tags: ['React', 'MongoDB', 'Context API'],
     githubLink: 'https://github.com/Devina0810/Task-trackr',
-    liveLink: 'https://todo-devina.vercel.app'
+    liveLink: 'https://task-trackr-bga4.onrender.com/'
   },
   {
     title: 'Movie-Time',
