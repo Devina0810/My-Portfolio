@@ -704,3 +704,57 @@ body {
   .footer-line{animation:none!important;}
 }
 
+/* ============================================================
+   GLOBAL PARTICLES  (pure CSS, GPU-friendly)
+============================================================ */
+.global-particle{
+  position:absolute;width:4px;height:4px;border-radius:9999px;opacity:0;
+  background:#06b6d4;will-change:transform;
+}
+.gp-1{background:#a855f7}.gp-2{background:#ec4899}.gp-3{background:#06b6d4}
+.gp-4{background:#a855f7}.gp-5{background:#ec4899}.gp-6{background:#06b6d4}
+.gp-7{background:#a855f7}.gp-8{background:#ec4899}.gp-9{background:#06b6d4}
+
+@keyframes floatGlobal{
+  0%{transform:translate(0,0) scale(0);opacity:0;}
+ 20%{opacity:.5;}
+ 50%{transform:translate(var(--tx),var(--ty)) scale(1);opacity:.3;}
+ 80%{opacity:.5;}
+100%{transform:translate(0,0) scale(0);opacity:0;}
+}
+
+.global-particle{
+  --tx: 80px; --ty: -60px;
+  animation:floatGlobal 12s ease-in-out infinite;
+}
+.gp-1{--tx:-90px;--ty:70px;animation-duration:13s;}
+.gp-2{--tx:120px;--ty:50px;animation-duration:14s;}
+.gp-3{--tx:-110px;--ty:-80px;animation-duration:15s;}
+.gp-4{--tx:60px; --ty:90px; animation-duration:12s;}
+.gp-5{--tx:-70px;--ty:-60px;animation-duration:14s;}
+.gp-6{--tx:100px;--ty:70px; animation-duration:16s;}
+.gp-7{--tx:-120px;--ty:50px;animation-duration:15s;}
+.gp-8{--tx:80px; --ty:-70px;animation-duration:13s;}
+.gp-9{--tx:-60px;--ty:90px; animation-duration:16s;}
+
+/* loading-screen particles */
+.loading-particles::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(#06b6d4 2px,transparent 3px),
+                   radial-gradient(#a855f7 2px,transparent 3px),
+                   radial-gradient(#ec4899 2px,transparent 3px);
+  background-size: 3px 3px, 3px 3px, 3px 3px;
+  background-position: 0 0,30px 30px,60px 60px;
+  animation:loadingDots 4s linear infinite;
+  opacity:.15;
+}
+@keyframes loadingDots{
+  0%{transform:translate(0,0);}
+100%{transform:translate(60px,60px);}
+}
+
+/* turn everything off for reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .global-particle,
+  .loading-particles::before{animation:none!important;}
+}
